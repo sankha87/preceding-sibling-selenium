@@ -1,0 +1,20 @@
+package preceding;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class PrecedingSibling {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		System.setProperty("webdriver.chrome.driver", "C:\\browser drivers\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://www.cleartrip.com");
+		driver.findElement(By.xpath("//*[text()='Trains']")).click();
+		Thread.sleep(2000);
+		driver.navigate().back();
+		driver.findElement(By.xpath("//*[text()='Hotels']/../../preceding-sibling::li[1]")).click();
+		
+	}
+}
